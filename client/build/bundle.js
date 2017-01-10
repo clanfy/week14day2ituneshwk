@@ -19789,7 +19789,8 @@
 	        'p',
 	        null,
 	        ' Songs Container Render started '
-	      )
+	      ),
+	      React.createElement(SongsList, null)
 	    );
 	  }
 	
@@ -19799,12 +19800,41 @@
 
 /***/ },
 /* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var Song = __webpack_require__(162);
+	
+	var SongsList = React.createClass({
+	  displayName: 'SongsList',
+	
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'p',
+	        null,
+	        ' SongsList Rendered '
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = SongsList;
+
+/***/ },
+/* 161 */
 /***/ function(module, exports) {
 
 	"use strict";
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports) {
 
 	"use strict";

@@ -27,6 +27,7 @@ var SongsContainer = React.createClass({
     return (
       <div>
       <p> Songs Container Render started </p>
+      <SongsList />
       </div>
       )
   }
