@@ -4,7 +4,7 @@ var SongsList = function(props){
   var mappedSongs = props.songs.map(function(song, index){
     return (
     <li key={index}>
-    {song['im:name']['label']}
+    {song['im:name']['label']} By {song['im:artist']['label']} 
     </li>
     )})
 

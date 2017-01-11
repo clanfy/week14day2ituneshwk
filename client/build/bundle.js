@@ -19756,7 +19756,6 @@
 	
 	var React = __webpack_require__(1);
 	var SongsList = __webpack_require__(160);
-	var Song = __webpack_require__(161);
 	
 	var SongsContainer = React.createClass({
 	  displayName: 'SongsContainer',
@@ -19789,7 +19788,7 @@
 	      React.createElement(
 	        'p',
 	        null,
-	        ' Songs Container Render started '
+	        ' Top 20 Songs '
 	      ),
 	      React.createElement(SongsList, { songs: this.state.songs })
 	    );
@@ -19806,60 +19805,26 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Song = __webpack_require__(161);
 	
-	var SongsList = React.createClass({
-	  displayName: 'SongsList',
-	
-	
-	  // getInitialState: function(){
-	  //   return { selectedIndex: undefined}
-	  // },
-	
-	  render: function render() {
-	
-	    var mappedSongs = this.props.songs.map(function (song, index) {
-	      return React.createElement(
-	        'li',
-	        {
-	          key: index },
-	        song['im:name']['label']
-	      );
-	    });
-	
+	var SongsList = function SongsList(props) {
+	  var mappedSongs = props.songs.map(function (song, index) {
 	    return React.createElement(
-	      'ol',
-	      { id: 'songs' },
-	      mappedSongs
+	      'li',
+	      { key: index },
+	      song['im:name']['label'],
+	      ' By ',
+	      song['im:artist']['label']
 	    );
-	  }
+	  });
 	
-	});
-	
-	module.exports = SongsList;
-
-/***/ },
-/* 161 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
-	var Song = function Song(props) {
 	  return React.createElement(
-	    'div',
-	    null,
-	    React.createElement(
-	      'h3',
-	      null,
-	      props.song.feed.entry.name,
-	      ' '
-	    )
+	    'ol',
+	    { id: 'songs' },
+	    mappedSongs
 	  );
 	};
 	
-	module.exports = Song;
+	module.exports = SongsList;
 
 /***/ }
 /******/ ]);

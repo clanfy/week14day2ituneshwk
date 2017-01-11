@@ -1,6 +1,6 @@
 var React = require('react');
 var SongsList = require('../components/SongsList');
-var Song = require('../components/Song');
+
 
 var SongsContainer = React.createClass({
 
@@ -27,7 +27,7 @@ var SongsContainer = React.createClass({
   render: function(){
     return (
       <div>
-      <p> Songs Container Render started </p>
+      <p> Top 20 Songs </p>
       <SongsList songs={this.state.songs} />
       </div>
       )
