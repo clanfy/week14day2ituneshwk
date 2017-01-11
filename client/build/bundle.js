@@ -19811,9 +19811,13 @@
 	    return React.createElement(
 	      'li',
 	      { key: index },
-	      song['im:name']['label'],
-	      ' By ',
-	      song['im:artist']['label']
+	      React.createElement(
+	        'p',
+	        null,
+	        song['im:name']['label'],
+	        ' By ',
+	        song['im:artist']['label']
+	      )
 	    );
 	  });
 	
