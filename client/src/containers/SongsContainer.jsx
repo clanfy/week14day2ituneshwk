@@ -26,8 +26,8 @@ var SongsContainer = React.createClass({
 
   render: function(){
     return (
-      <div>
-      <p> Top 25 Audio Books in the UK </p>
+      <div className='songs-container'>
+      <h3> Top 25 Audio Books in the UK </h3>
       <SongsList songs={this.state.songs} />
       </div>
       )
