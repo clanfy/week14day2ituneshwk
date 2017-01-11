@@ -19818,7 +19818,7 @@
 	        ' By ',
 	        song['im:artist']['label']
 	      ),
-	      React.createElement('img', { src: song['im:image'][0]['label'] })
+	      React.createElement('img', { src: song['im:image'][2]['label'] })
 	    );
 	  });
 	

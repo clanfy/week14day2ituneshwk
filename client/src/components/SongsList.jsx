@@ -6,7 +6,7 @@ var SongsList = function(props){
     <li key={index}>
     <p>{song['im:name']['label']} By {song['im:artist']['label']} 
     </p>
-    <img src={song['im:image'][0]['label']}/>
+    <img src={song['im:image'][2]['label']}/>
     </li>
     )})
 
