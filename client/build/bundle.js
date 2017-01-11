@@ -19769,12 +19769,13 @@
 	  },
 	
 	  componentDidMount: function componentDidMount() {
-	    var url = "https://itunes.apple.com/ca/rss/topaudiobooks/limit=20/json";
+	    var url = "https://itunes.apple.com/gb/rss/topsongs/limit=20/json";
 	    var request = new XMLHttpRequest();
 	    request.open('GET', url);
 	    request.onload = function () {
 	      if (request.status === 200) {
-	        var data = JSON.parse(request.responseText);
+	        var data = JSON.parse(request.responseText)['feed']['entry'];
+	        console.log("data", data);
 	        this.setState({ songs: data });
 	      }
 	    }.bind(this);
@@ -19790,7 +19791,7 @@
 	        null,
 	        ' Songs Container Render started '
 	      ),
-	      React.createElement(SongsList, null)
+	      React.createElement(SongsList, { songs: this.state.songs })
 	    );
 	  }
 	
@@ -19805,21 +19806,31 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Song = __webpack_require__(162);
+	var Song = __webpack_require__(161);
 	
 	var SongsList = React.createClass({
 	  displayName: 'SongsList',
 	
 	
+	  // getInitialState: function(){
+	  //   return { selectedIndex: undefined}
+	  // },
+	
 	  render: function render() {
+	
+	    var mappedSongs = this.props.songs.map(function (song, index) {
+	      return React.createElement(
+	        'li',
+	        {
+	          key: index },
+	        song['im:name']['label']
+	      );
+	    });
+	
 	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'p',
-	        null,
-	        ' SongsList Rendered '
-	      )
+	      'ol',
+	      { id: 'songs' },
+	      mappedSongs
 	    );
 	  }
 	
@@ -19829,15 +19840,26 @@
 
 /***/ },
 /* 161 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-/***/ },
-/* 162 */
-/***/ function(module, exports) {
-
-	"use strict";
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var Song = function Song(props) {
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'h3',
+	      null,
+	      props.song.feed.entry.name,
+	      ' '
+	    )
+	  );
+	};
+	
+	module.exports = Song;
 
 /***/ }
 /******/ ]);

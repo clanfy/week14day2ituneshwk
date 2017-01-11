@@ -11,15 +11,16 @@ var SongsContainer = React.createClass({
   },
 
   componentDidMount: function(){
-    var url = "https://itunes.apple.com/ca/rss/topaudiobooks/limit=20/json";
+    var url = "https://itunes.apple.com/gb/rss/topsongs/limit=20/json";
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.onload = function(){
-      if (request.status === 200){
-        var data = JSON.parse(request.responseText);
+      if(request.status === 200){
+        var data = JSON.parse(request.responseText)['feed']['entry'];
+        console.log("data", data);
         this.setState({songs: data});
       }
-    }.bind(this)
+    }.bind(this);
     request.send(null);
   },
 
@@ -27,7 +28,7 @@ var SongsContainer = React.createClass({
     return (
       <div>
       <p> Songs Container Render started </p>
-      <SongsList />
+      <SongsList songs={this.state.songs} />
       </div>
       )
   }

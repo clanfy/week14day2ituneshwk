@@ -1,13 +1,24 @@
 var React = require('react');
-var Song = require('./song');
+var Song = require('./Song');
 
 var SongsList = React.createClass({
 
+  // getInitialState: function(){
+  //   return { selectedIndex: undefined}
+  // },
+
   render: function(){
+
+    var mappedSongs = this.props.songs.map(function(song, index){
+      return <li
+      key={index}>
+      {song['im:name']['label']}</li>});
+
     return (
-      <div>
-      <p> SongsList Rendered </p>
-      </div>
+      <ol id='songs'>
+      {mappedSongs}
+      </ol>
+      
       );
   }
 
