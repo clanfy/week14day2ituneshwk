@@ -19812,13 +19812,30 @@
 	      'li',
 	      { key: index },
 	      React.createElement(
+	        'h4',
+	        null,
+	        React.createElement(
+	          'b',
+	          null,
+	          song['im:name']['label']
+	        )
+	      ),
+	      React.createElement('img', { src: song['im:image'][2]['label'] }),
+	      React.createElement(
 	        'p',
 	        null,
-	        song['im:name']['label'],
-	        ' By ',
-	        song['im:artist']['label']
-	      ),
-	      React.createElement('img', { src: song['im:image'][2]['label'] })
+	        song['im:artist']['label'],
+	        React.createElement('br', null),
+	        ' Category:',
+	        React.createElement(
+	          'i',
+	          null,
+	          song['category']['attributes']['label'],
+	          ' '
+	        ),
+	        React.createElement('br', null),
+	        song['im:price']['label']
+	      )
 	    );
 	  });
 	

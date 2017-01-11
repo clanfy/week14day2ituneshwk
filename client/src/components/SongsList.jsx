@@ -4,9 +4,15 @@ var SongsList = function(props){
   var mappedSongs = props.songs.map(function(song, index){
     return (
     <li key={index}>
-    <p>{song['im:name']['label']} By {song['im:artist']['label']} 
-    </p>
+    <h4><b>{song['im:name']['label']}</b></h4> 
     <img src={song['im:image'][2]['label']}/>
+    <p>
+    {song['im:artist']['label']} 
+    <br/> Category:  
+    <i>{song['category']['attributes']['label']} </i>
+    <br/>
+    {song['im:price']['label']} 
+    </p>
     </li>
     )})
 
