@@ -11,7 +11,7 @@ var SongsContainer = React.createClass({
   },
 
   componentDidMount: function(){
-    var url = "https://itunes.apple.com/gb/rss/topsongs/limit=20/json";
+    var url = "https://itunes.apple.com/gb/rss/topaudiobooks/limit=25/json";
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.onload = function(){
@@ -27,7 +27,7 @@ var SongsContainer = React.createClass({
   render: function(){
     return (
       <div>
-      <p> Top 20 Songs </p>
+      <p> Top 25 Audio Books in the UK </p>
       <SongsList songs={this.state.songs} />
       </div>
       )
